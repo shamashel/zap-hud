@@ -54,6 +54,11 @@
                         <th class="title hidden">
                             <span>{{ historyItemsFilteredMessage }}</span>
                         </th>
+                        <th class="title button">
+                            <span>
+                                <button @click="clearHttpHistory()">Clear History</button>
+                            </span>
+                        </th>
                     </tr>
                 </thead>
             </table>
@@ -104,6 +109,11 @@
                         </th>
                         <th class="title hidden">
                             <span>{{ websocketsItemsFilteredMessage }}</span>
+                        </th>
+                        <th class="title button">
+                            <span>
+                                <button @click="clearWSHistory()">Clear History</button>
+                            </span>
                         </th>
                     </tr>
                 </thead>

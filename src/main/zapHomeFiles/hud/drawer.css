@@ -66,6 +66,11 @@
   width: 150px;
 }
 
+.table .title.button {
+  width: auto;
+  font-weight: normal;
+}
+
 .table .title.filter{
   width: auto;
   font-weight: normal;

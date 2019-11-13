@@ -149,6 +149,13 @@ const History = (function () {
 			.catch(utils.errorHandler);
 	}
 
+	function clearMessages() {
+		utils.messageAllTabs('drawer', {action: 'setMessages', messages: []})
+			.catch(utils.errorHandler);
+		tool.messages = [];
+		utils.writeTool(tool);
+	}
+
 	self.addEventListener('message', event => {
 		const message = event.data;
 
@@ -179,6 +186,10 @@ const History = (function () {
 							return showHttpMessageDetails(message.tabId, data);
 						})
 						.catch(utils.errorHandler);
+					break;
+
+				case 'clearHttpHistory':
+					clearMessages();
 					break;
 
 				default:

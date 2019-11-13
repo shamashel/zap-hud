@@ -58,6 +58,9 @@ Vue.component('history', {
 		}
 	},
 	methods: {
+		clearHttpHistory() {
+			navigator.serviceWorker.controller.postMessage({tabId, frameId, action: 'clearHttpHistory', tool: 'history'});
+		},
 		messageSelected(id) {
 			navigator.serviceWorker.controller.postMessage({tabId, frameId, action: 'showHttpMessageDetails', tool: 'history', id});
 		},
@@ -168,6 +171,9 @@ Vue.component('websockets', {
 		}
 	},
 	methods: {
+		clearWSHistory() {
+			navigator.serviceWorker.controller.postMessage({tabId, frameId, action: 'clearWSHistory', tool: 'websockets'});
+		},
 		messageSelected(channelId, messageId) {
 			navigator.serviceWorker.controller.postMessage({tabId, frameId, action: 'showWebSocketMessageDetails', tool: 'websockets', channelId, messageId});
 		},
@@ -478,6 +484,13 @@ navigator.serviceWorker.addEventListener('message', event => {
 	const port = event.ports[0];
 
 	switch (action) {
+		case 'setMessages':
+			eventBus.$emit('setMessages', {
+				messages: event.data.messages,
+				port
+			});
+
+			break;
 		case 'updateMessages':
 			eventBus.$emit('updateMessages', {
 				messages: event.data.messages,
