@@ -18,7 +18,8 @@ Vue.component('history', {
 			hiddenMessageCount: 0,
 			isRegExError: false,
 			historyItemsFilteredMessage: '',
-			enableRegExText: I18n.t('common_enable_regex')
+			enableRegExText: I18n.t('common_enable_regex'),
+			clearText: I18n.t('common_clear')
 		};
 	},
 	computed: {
@@ -131,7 +132,8 @@ Vue.component('websockets', {
 			hiddenMessageCount: 0,
 			isRegExError: false,
 			websocketsItemsFilteredMessage: '',
-			enableRegExText: I18n.t('common_enable_regex')
+			enableRegExText: I18n.t('common_enable_regex'),
+			clearText: I18n.t('common_clear')
 		};
 	},
 	computed: {

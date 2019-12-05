@@ -69,6 +69,7 @@
 .table .title.button {
   width: auto;
   font-weight: normal;
+  margin-bottom: 5px;
 }
 
 .table .title.filter{
